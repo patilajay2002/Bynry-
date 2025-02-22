@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Gas Utility Service || Signup{% endblock %}
+
+
+
+
+{% block content %}
+
+    <div class=" welcome login">
+    <form method="post"  enctype="multipart/form-data">
+        {%csrf_token%}
+        <div>
+            <h4>Request Service</h4>
+        </div>
+        <div>
+            <label for="">Service Type</label>
+            <select name="service_type" id="" required>
+                <option value="repair">Repair</option>
+                <option value="installation">Installation</option>
+                <option value="maintenance">Maintenance</option>
+            </select>
+         </div> 
+         <div>
+            <label for="">Description</label>
+            <textarea name="desc" id="" cols="20" rows="4" required></textarea>
+         </div> 
+         <div>
+            <label for="">Attach File</label>
+            <input type="file" required name="file" id="">
+         </div>      
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+{% endblock %}

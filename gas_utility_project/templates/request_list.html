@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Gas Utility Service || Service List{% endblock %}
+
+
+
+
+{% block content %}
+{%if list%}
+<div class="service-type">
+    {%for l in list %}
+    <div class="ser-type">
+        <div>
+            <h4>{{l.service_type | capfirst}}</h4>
+            <p>{{l.description}}</p>
+            <p></p>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div>
+                <a class="fileloc " href="http://127.0.0.1:8000/media/{{l.attachment}}/" target="_blank">file.attachment</a>
+            <p class="px-4 py-2">status : {{l.status}}</p>
+            </div>
+            <div>
+                <p>Request on {{l.submitted_at}}</p>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{%endif%}
+{% endblock %}

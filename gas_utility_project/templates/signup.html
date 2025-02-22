@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Gas Utility Service || Signup{% endblock %}
+
+
+
+
+{% block content %}
+    {%if user.is_authenticated%}
+    <div class="welcome">
+        <h1>Welcome, {{ user.get_full_name}}. Thanks for logging in.</h1>
+        <div>
+            <a class="  " href="/">Generate Service Requests</a>
+            <a class="  " href="/">Status of Service Request</a>
+        </div>
+
+    </div>
+    {%else%}
+    <div class=" welcome login">
+    <form method="post">
+        {%csrf_token%}
+        <div>
+            <h4>Register</h4>
+        </div>
+        <div>
+            <label for="">First Name</label>
+            <input type="text" name="fname" id="">
+         </div> 
+         <div>
+            <label for="">Last Name</label>
+            <input type="text" name="lname" id="">
+         </div> 
+         <div>
+            <label for="">Email</label>
+            <input type="email" name="email" id="">
+         </div>      
+        <div>
+           <label for="">Username</label>
+           <input type="text" name="uname" id="">
+        </div>    
+        <div>
+            <label for="">Password</label>
+            <input type="password" name="pass" id="">
+        </div>
+        <div>
+            <input type="submit" value="Signup">
+        </div>
+    </form>
+    <div>
+        <p>already registered  ?</p>
+        <a href="/auth/login/">Login </a>
+    </div>
+    </div>
+    {%endif%}
+{% endblock %}

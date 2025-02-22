@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Gas Utility Service{% endblock %}
+
+
+
+
+{% block content %}
+    {%if user.is_authenticated%}
+    <div class="welcome">
+        <h1>Welcome, {{ user.get_full_name}}. Thanks for logging in.</h1>
+        <div>
+            <a href="/request/generate/">Generate Service Requests</a>
+            <a  href="/request/list/">Status of Service Request</a>
+        </div>
+
+    </div>
+    {%else%}
+    <div class="welcome">
+        <h1>Need authentication for Service Request</h1>
+        <div>
+            <a class="btnn  " href="/auth/login/">login</a>
+            <a class="btnn" href="/auth/signup/">Signup</a>
+        </div>
+    </div>
+    {%endif%}
+{% endblock %}
